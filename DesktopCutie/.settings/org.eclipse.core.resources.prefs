@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//infoTool/load_Animation_from_xml.py=utf-8
+encoding//infoTool/load_Fairy_From_XML_File.py=utf-8
+encoding//infoTool/load_Project_Location.py=utf-8
+encoding//infoTool/situation.py=utf-8
+encoding//main/main.py=utf-8
+encoding//model/Animation.py=utf-8
+encoding//model/AnimationConsole.py=utf-8
+encoding//model/Fairy.py=utf-8
+encoding//model/MyThread.py=utf-8
+encoding//view/Ui_fairyframe.py=utf-8
+encoding//view/Ui_managerframe.py=utf-8
+encoding//view/Ui_systemTray.py=utf-8
+encoding//view/fairyframe.py=utf-8
+encoding//view/managerframe.py=utf-8
+encoding//view/systemtray.py=utf-8
