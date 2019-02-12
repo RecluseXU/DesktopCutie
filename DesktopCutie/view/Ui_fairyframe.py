@@ -2,7 +2,7 @@
 
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
-
+from PyQt5 import QtWidgets
 
 class Ui_FairyWindow(object):
     def setupUi(self, QDialog):
@@ -29,7 +29,6 @@ class Ui_FairyWindow(object):
         
     def retranslateUi(self, QDialog):
         _translate = QtCore.QCoreApplication.translate
-        
         QDialog.setAttribute(Qt.WA_TranslucentBackground, True) # 窗口背景透明
         # Qt.FramelessWindowHint设置无边框,Qt.WindowStaysOnTopHint窗口保持在前端,Qt.ToolTip设为工具提示窗，不在系统任务栏显示
 #         MainWindow.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint) 
@@ -39,7 +38,6 @@ class Ui_FairyWindow(object):
         
 if __name__ == "__main__":
     import sys
-    from PyQt5 import QtWidgets
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
     ui = Ui_FairyWindow()

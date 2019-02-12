@@ -21,8 +21,9 @@ class Ui_SystemTray(object):
         self.menu3 = QMenu(self.menu)
         self.menu3.setObjectName("menu3")
 #         self.setMenuBar(self.menuBar)
-        self.action_2 = QAction(self)
-        self.action_2.setObjectName("action_2")
+        self.exit_Action = QAction(self)
+        self.exit_Action.setObjectName("exit_Action")
+        
         self.action1 = QAction(self)
         self.action1.setObjectName("action1")
         self.action2 = QAction(self)
@@ -33,12 +34,13 @@ class Ui_SystemTray(object):
         self.action3_2.setObjectName("action3_2")
         self.menu3.addAction(self.action3_1)
         self.menu3.addAction(self.action3_2)
+        
         self.menu.addAction(self.action1)
         self.menu.addAction(self.action2)
         self.menu.addSeparator()
         self.menu.addAction(self.menu3.menuAction())
         self.menu.addSeparator()
-        self.menu.addAction(self.action_2)
+        self.menu.addAction(self.exit_Action)
 #         self.menuBar.addAction(self.menu.menuAction())
         
         
@@ -49,7 +51,7 @@ class Ui_SystemTray(object):
         _translate = QCoreApplication.translate
         self.menu.setTitle(_translate("Tray", "推出"))
         self.menu3.setTitle(_translate("Tray", "3"))
-        self.action_2.setText(_translate("Tray", "退出"))
+        self.exit_Action.setText(_translate("Tray", "退出"))
         self.action1.setText(_translate("Tray", "1"))
         self.action2.setText(_translate("Tray", "2"))
         self.action3_1.setText(_translate("Tray", "3-1"))
