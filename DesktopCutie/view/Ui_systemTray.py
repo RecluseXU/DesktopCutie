@@ -5,40 +5,36 @@ Created on 2019年2月5日
 @author: RecluseXu
 '''
 from PyQt5.QtWidgets import QSystemTrayIcon, QMenu, QAction
-from PyQt5.QtGui import QIcon
 from PyQt5.QtWidgets import QApplication
 from PyQt5.QtCore import QCoreApplication
+from controller import system_tray_console
 
 
 class Ui_SystemTray(object):
     def setupUi(self,QSystemTrayIcon):
         
         self.centralWidget = QSystemTrayIcon
-        self.centralWidget.setIcon(QIcon("F:/MyDocument/Desktop/RM-Skin制作/UI龙之谷/crosssleep.png"))
+        self.centralWidget.setIcon(system_tray_console.get_icon("SystemTray"))
         
         self.menu = QMenu()
         self.menu.setObjectName("menu")
-        self.menu3 = QMenu(self.menu)
-        self.menu3.setObjectName("menu3")
-#         self.setMenuBar(self.menuBar)
+        
         self.exit_Action = QAction(self)
         self.exit_Action.setObjectName("exit_Action")
         
-        self.action1 = QAction(self)
-        self.action1.setObjectName("action1")
-        self.action2 = QAction(self)
-        self.action2.setObjectName("action2")
-        self.action3_1 = QAction(self)
-        self.action3_1.setObjectName("action3_1")
-        self.action3_2 = QAction(self)
-        self.action3_2.setObjectName("action3_2")
-        self.menu3.addAction(self.action3_1)
-        self.menu3.addAction(self.action3_2)
+        self.manager_window_action = QAction(self)
+        self.manager_window_action.setObjectName("manager_window_action")
         
-        self.menu.addAction(self.action1)
-        self.menu.addAction(self.action2)
+        self.talk_frame_action = QAction(self)
+        self.talk_frame_action.setObjectName("talk_frame_action")
+        
+        self.fairy_menu = QMenu(self.menu)
+        self.fairy_menu.setObjectName("fairy_menu")
+        
+        self.menu.addAction(self.manager_window_action)
         self.menu.addSeparator()
-        self.menu.addAction(self.menu3.menuAction())
+        self.menu.addAction(self.talk_frame_action)
+        self.menu.addAction(self.fairy_menu.menuAction())
         self.menu.addSeparator()
         self.menu.addAction(self.exit_Action)
 #         self.menuBar.addAction(self.menu.menuAction())
@@ -47,15 +43,16 @@ class Ui_SystemTray(object):
         self.centralWidget.setContextMenu(self.menu)
         
         self.retranslateUi(QSystemTrayIcon)
+    
+    
+    
     def retranslateUi(self, QSystemTrayIcon):
         _translate = QCoreApplication.translate
         self.menu.setTitle(_translate("Tray", "推出"))
-        self.menu3.setTitle(_translate("Tray", "3"))
+        self.fairy_menu.setTitle(_translate("Tray", "精灵"))
         self.exit_Action.setText(_translate("Tray", "退出"))
-        self.action1.setText(_translate("Tray", "1"))
-        self.action2.setText(_translate("Tray", "2"))
-        self.action3_1.setText(_translate("Tray", "3-1"))
-        self.action3_2.setText(_translate("Tray", "3-2"))
+        self.manager_window_action.setText(_translate("Tray", "管理面板"))
+        self.talk_frame_action.setText(_translate("Tray", "对话面板"))
 
 if __name__ == "__main__":
     import sys

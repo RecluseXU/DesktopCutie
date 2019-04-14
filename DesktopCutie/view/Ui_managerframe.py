@@ -8,6 +8,9 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from view.fairyTab import FairyTab
+from view.talk_set_Tab import Talk_set_tab
+from view.manager_set_Tab import Manager_set_tab
+
 
 class Ui_ManagerWindow(object):
     def setupUi(self, QDialog):
@@ -26,23 +29,20 @@ class Ui_ManagerWindow(object):
         self.centralWidget_TabWidget.setMovable(False)
         self.centralWidget_TabWidget.setObjectName("centralWidget_TabWidget")
         
+        
+        #中心控件-中心布局-选项卡控件-对话选项卡
+        self.TalkTab = Talk_set_tab()
+        self.TalkTab.setObjectName("TalkTab")
+        self.centralWidget_TabWidget.addTab(self.TalkTab, "")
+        
         #中心控件-中心布局-选项卡控件-精灵选项卡
         self.FairyTab = FairyTab()
         self.centralWidget_TabWidget.addTab(self.FairyTab, "")
         
         #中心控件-中心布局-选项卡控件-设置选项卡
-        self.SetTab = QtWidgets.QWidget()
-        self.SetTab.setObjectName("SetTab")
-        #中心控件-中心布局-选项卡控件-设置选项卡-语言下拉选框
-        self.setTab_LanguageSelectComboBox = QtWidgets.QComboBox(self.SetTab)
-        self.setTab_LanguageSelectComboBox.setGeometry(QtCore.QRect(120, 40, 371, 20))
-        self.setTab_LanguageSelectComboBox.setObjectName("setTab_LanguageSelectComboBox")
-        #中心控件-中心布局-选项卡控件-设置选项卡-语言选择标签
-        self.setTab_LanguageLabel = QtWidgets.QLabel(self.SetTab)
-        self.setTab_LanguageLabel.setGeometry(QtCore.QRect(54, 40, 48, 16))
-        self.setTab_LanguageLabel.setObjectName("setTab_LanguageLabel")
-        #中心控件-中心布局-选项卡控件-设置选项卡
+        self.SetTab = Manager_set_tab()
         self.centralWidget_TabWidget.addTab(self.SetTab, "")
+        
         #中心控件-中心布局-选项卡控件
         self.verticalLayout.addWidget(self.centralWidget_TabWidget)
         
@@ -78,13 +78,16 @@ class Ui_ManagerWindow(object):
         self.centralWidget_TabWidget.setCurrentIndex(0)
         
         QtCore.QMetaObject.connectSlotsByName(QDialog)
+        
+        print("管理界面UI读取完毕")
 
     def retranslateUi(self, QDialog):
         _translate = QtCore.QCoreApplication.translate
         QDialog.setWindowTitle(_translate("QDialog", "QDialog"))
 #         self.label.setText(_translate("QDialog", "TextLabel"))
+        self.centralWidget_TabWidget.setTabText(self.centralWidget_TabWidget.indexOf(self.TalkTab), _translate("QDialog", "对话"))
         self.centralWidget_TabWidget.setTabText(self.centralWidget_TabWidget.indexOf(self.FairyTab), _translate("QDialog", "精灵"))
-        self.setTab_LanguageLabel.setText(_translate("QDialog", "Language"))
+#         self.setTab_LanguageLabel.setText(_translate("QDialog", "Language"))
         self.centralWidget_TabWidget.setTabText(self.centralWidget_TabWidget.indexOf(self.SetTab), _translate("QDialog", "设置"))
         self.helpButton.setText(_translate("QDialog", "帮助"))
         self.refreshAllButton.setText(_translate("QDialog", "刷新全部"))

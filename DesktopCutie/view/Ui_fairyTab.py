@@ -4,9 +4,10 @@ Created on 2019年2月9日
 
 @author: RecluseXu
 '''
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtCore,  QtWidgets
 from PyQt5.Qt import QFont
 from PyQt5.QtCore import Qt
+from controller.fairy_tab_console import get_icon
 
 class Ui_FairyTab(object):
     def setupUi(self, Form):
@@ -101,15 +102,54 @@ class Ui_FairyTab(object):
         self.fairyTab_RightFloor2GridLayout.setRowStretch(2, 1)
         self.fairyTab_RightFloor2GridLayout.setRowStretch(3, 3)
         self.fairyTabGridLayout.addLayout(self.fairyTab_RightFloor2GridLayout, 1, 1, 1, 1)
+        
         # 精灵选项卡-精灵选项卡布局-右边第三层布局
         self.fairyTab_RightFloor3GridLayout = QtWidgets.QGridLayout()
         self.fairyTab_RightFloor3GridLayout.setObjectName("fairyTab_RightFloor3GridLayout")
-        # 精灵选项卡-精灵选项卡布局-右边第三层布局-标签
-        self.label = QtWidgets.QLabel()
-        self.label.setObjectName("label")
-        self.fairyTab_RightFloor3GridLayout.addWidget(self.label, 0, 0, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第1行buff第1列
+        self.buffer_label = QtWidgets.QLabel()
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.buffer_label, 0, 0, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第1行buff第2列—TinyPNG
+        self.tinypng_buff_label = QtWidgets.QPushButton()
+#         self.tinypng_buff_label = QtWidgets.QLabel()
+        self.tinypng_buff_label.setFixedHeight(25)
+        self.tinypng_buff_label.setFixedWidth(25)
+        self.tinypng_buff_label.setIcon(get_icon("buff_box_black"))
+        self.tinypng_buff_label.setCheckable(False)
+#         self.tinypng_buff_label.setPixmap(get_icon("buff_box").pixmap(25,25))
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.tinypng_buff_label, 0, 1, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第1行buff第2列—添加buff按钮
+#         self.add_buff_button = QtWidgets.QPushButton()
+#         self.add_buff_button.setFixedWidth(50)
+#         self.fairyTab_RightFloor3GridLayout.addWidget(self.add_buff_button, 0, 5, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第2行第1列—动画注册标签
+        self.animation_register_set_label = QtWidgets.QLabel()
+        self.animation_register_set_label.setObjectName("animation_registe_set_label")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_register_set_label, 1, 0, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第2行第2列—动画注册id下拉菜单
+        self.animation_register_combobox = QtWidgets.QComboBox()
+        self.animation_register_combobox.setObjectName("animation_register_combobox")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_register_combobox, 1, 1, 1, 5)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第3行第1列—动画逻辑标签
+        self.animation_logic_set_label = QtWidgets.QLabel()
+        self.animation_logic_set_label.setObjectName("animation_logic_set_label")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_logic_set_label, 2, 0, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第3行第2列—动画逻辑下拉菜单
+        self.animation_logic_combobox = QtWidgets.QComboBox()
+        self.animation_logic_combobox.setObjectName("animation_logic_combobox")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_logic_combobox, 2, 1, 1, 5)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第4行第1列—动画资源标签
+        self.animation_resource_label = QtWidgets.QLabel()
+        self.animation_resource_label.setObjectName("animation_resource_label")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_resource_label, 3, 0, 1, 1)
+        # 精灵选项卡-精灵选项卡布局-右边第三层布局-第4行第2列—动画资源id下拉菜单
+        self.animation_resource_combobox = QtWidgets.QComboBox()
+        self.animation_resource_combobox.setObjectName("animation_resource_combobox")
+        self.fairyTab_RightFloor3GridLayout.addWidget(self.animation_resource_combobox, 3, 1, 1, 5)
+        
         # 精灵选项卡-精灵选项卡布局-右边第三层布局
         self.fairyTabGridLayout.addLayout(self.fairyTab_RightFloor3GridLayout, 2, 1, 1, 1)
+        
         # 精灵选项卡-精灵选项卡布局
         self.fairyTabGridLayout.setColumnStretch(0, 2)
         self.fairyTabGridLayout.setColumnStretch(1, 3)
@@ -134,9 +174,13 @@ class Ui_FairyTab(object):
         self.FairyInfomationLabel.setText(_translate("MainWindow", "信息:"))
         self.FairyVersionLabel.setText(_translate("MainWindow", "版本:"))
         self.addFairyButton.setText(_translate("MainWindow", "添加"))
-        self.label.setText(_translate("MainWindow", "TextLabel"))
+        self.buffer_label.setText("状态:")
+#         self.add_buff_button.setText("添加")
+        self.animation_register_set_label.setText(_translate("MainWindow", "注册动画:"))
+        self.animation_logic_set_label.setText("动画逻辑:")
+        self.animation_resource_label.setText("动画资源:")
 #         self.centralWidget_TabWidget.setTabText(self.centralWidget_TabWidget.indexOf(self), _translate("MainWindow", "精灵"))
-
+        
 
 if __name__ == "__main__":
     import sys

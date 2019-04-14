@@ -14,7 +14,6 @@ class Fairy(object):
         self.initWindowLocation = None #窗口初始位置
         self.windowLocationLimited_X = None #对窗口坐标的限制
         self.windowLocationLimited_Y = None
-        self.animationSizeScale = None #图片缩放比例
         
         self.author = None #作者信息
         self.version = None #版本信息

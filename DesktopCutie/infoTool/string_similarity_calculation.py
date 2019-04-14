@@ -10,7 +10,7 @@ def calculate_hamming_distance(str1, str2):
     # 1） Levenshtein.hamming(str1, str2)
     # 计算 汉明距离。 要求str1和str2必须长度一致。是描述两个等长字串之间 对应 位置上 不同 字符的个数。
     a = Levenshtein.hamming(str1, str2)
-    print(a)
+#     print(a)
     return a
 
 def calculate_edit_distance(str1, str2):
@@ -18,7 +18,7 @@ def calculate_edit_distance(str1, str2):
     # 计算 编辑距离 （也称为Levenshtein距离 ）。
     # 是描述由一个字串转化成另一个字串最少的操作次数，在其中的操作包括 插入 、删除 、替换 。
     a = Levenshtein.distance(str1,str2)
-    print(a)
+#     print(a)
     return a
 
 def calculate_ratio_proportion(str1, str2):
@@ -29,7 +29,7 @@ def calculate_ratio_proportion(str1, str2):
     #这样设计的目的：ratio('a', 'c')，sum=2,按2中计算为（2-1）/2 = 0.5,’a','c'没有重合，显然不合算，但是替换操作+2，就可以解决这个问题。
 
     a = Levenshtein.ratio(str1, str2)
-    print(a)
+#     print(a)
     return a
 
 

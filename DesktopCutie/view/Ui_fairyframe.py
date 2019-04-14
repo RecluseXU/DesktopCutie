@@ -3,10 +3,11 @@
 from PyQt5 import QtCore
 from PyQt5.QtCore import Qt
 from PyQt5 import QtWidgets
+from PyQt5.Qt import QPoint
 
 class Ui_FairyWindow(object):
     def setupUi(self, QDialog):
-        QDialog.setObjectName("MainWindow")
+        QDialog.setObjectName("FairyWindow")
         QDialog.resize(500, 500)
         
         self.centralWidget = QtWidgets.QWidget(QDialog)
@@ -17,7 +18,10 @@ class Ui_FairyWindow(object):
         self.label.setObjectName("label")
         self.label.resize(500,500)
         self.label.setAlignment(Qt.AlignLeft|Qt.AlignTop)
-        self.label.move(100,100) # 各留出100像素位置给图像位移用
+        
+        # 预先保留空间，流出一些空间来显示图片，以免因为图片过大超出窗口而导致图片显示不全
+        self.retain_space_point = QPoint(100,100)
+        self.label.move(self.retain_space_point) # 各留出100像素位置给图像位移用
         
         
         self.retranslateUi(QDialog)
@@ -31,7 +35,7 @@ class Ui_FairyWindow(object):
         _translate = QtCore.QCoreApplication.translate
         QDialog.setAttribute(Qt.WA_TranslucentBackground, True) # 窗口背景透明
         # Qt.FramelessWindowHint设置无边框,Qt.WindowStaysOnTopHint窗口保持在前端,Qt.ToolTip设为工具提示窗，不在系统任务栏显示
-#         MainWindow.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint) 
+#         QDialog.setWindowFlags(Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint) 
         QDialog.setWindowFlags(Qt.ToolTip | Qt.FramelessWindowHint)
         
 

@@ -4,17 +4,20 @@ Created on 2019年1月9日
 
 @author: RecluseXu
 '''
+
 import random
 from infoTool.situation import isOnTheGround
+
 class Animation(object):
-    def __init__(self,animationID,logic="",resource=""):
+    def __init__(self, animationID, logic, resource):
         self.ID = animationID # 动画ID，唯一标识一个动画。type=str
         self.logic = logic # 动画逻辑，记录着播放玩动画后接下应该播放什么动画，及播放频率。
                             # key="逻辑id",value=[{"动作id":str, "发生阀值":int}]
         self.resource = resource # 动画资源，保存着动画图片与窗口偏移。
+        self.defaultLogicID = self.logic[0] #动画默认逻辑id
+        
         
         self.situationChange = None #状态更替
-        self.defaultLogicID = None #动画默认逻辑id
         self.animationLength = None # 动画帧数长度
         self.conditionReplaceLogic = None # 逻辑更替，当达到某个条件的时候，用新的逻辑取代留的逻辑时使用。
                                             #key="更替条件",value={"发生条件":str, "逻辑id"=str, "强制更替"="是"}
@@ -22,7 +25,7 @@ class Animation(object):
         self.conditionChangeAnimation = None # 动画更替，当达到某个条件的时候，用新的动画取代现在的动画。
                                             # [{"发生条件":fuction, "动作id"=str, 强制更替=boolean} ]
         self.haveCompelChangeAnimationItem = False #是否存在强制动画更替
-  
+   
         self.sumProbabilityValue = 0 # 动画逻辑中，全部下一动画频率之和
         self.nowLogicID = None # 当前逻辑id
         self.nowImageNumber = 0 # 当前动画帧的数号

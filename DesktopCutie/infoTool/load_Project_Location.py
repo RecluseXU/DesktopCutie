@@ -15,9 +15,13 @@ def get_ProjectLocation():
         import sys
         address = sys.argv[0].replace("\\","/")
         projectLocation = address[:address.find("/DesktopCutie/")+len("/DesktopCutie/")]
+        
+        print(projectLocation)
+        
         return projectLocation
     else:
         return projectLocation
+
 
 def get_resourceLocation():
     # 获取项目资源路径
@@ -26,7 +30,30 @@ def get_resourceLocation():
 def get_TheCuiteFolderLocation(cuiteID):
     # 获取指定Cuite的资源文件夹绝对路径
     return get_resourceLocation() + cuiteID + "/"
-    
+
+def get_auto_reply_location():
+    '''获取放置自动回复的路径'''
+    return get_resourceLocation()+"Manager/TalkWidget/Judgement/AutoReply/"
+
+def get_judge_model_folder_location():
+    '''获取放置判断模型的文件夹位置'''
+    return get_resourceLocation()+"Manager/TalkWidget/Judgement/JudgeModel/"
+
+def get_SoftwareMapper_location():
+    '''获取软件mapper的路径'''
+    return get_resourceLocation() + "Manager/TalkWidget/SoftwareMapper.json"
+
+def get_FairyInfoNote_folder_location():
+    '''获取存放精灵简要信息文件夹的路径'''
+    return get_resourceLocation() + "Manager/FairySetWidget/FairyInfoNote/"
+
+def get_JudgeStepList_location():
+    '''获取判断步骤列表文件的位置'''
+    return get_resourceLocation()+"Manager/TalkWidget/Judgement/JudgeStepList.ini"
+
+def get_ManagerConfigure_Location():
+    '''获取管理器设置文件路径'''
+    return get_resourceLocation() + "Manager/"
 
 if __name__ == '__main__':
     for i in range(2):
